@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Colour Experiment</title>
+        <style>
+            html {
+                height: 100%;
+                box-sizing: border-box;
+            }
+            body {
+                font-size: 1em;
+                background-color: #2D3037;
+                color: white;
+                font-family: "Georgia", Times, serif;
+            }
+            pre {
+                font-family: "Georgia", Times, serif;
+            }
+            #question_container {
+                margin: 10px 0 10px 0;
+            }
+            #content_container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: 30px;
+                min-height: 330px; /* to make sure the question doens't jump up and down  */
+                /* border: 1px solid white; */
+            }
+            #right_menu {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: 60px;
+                flex-direction: column;
+                /* border: 1px solid white; */
+                text-align: center;
+            }
+            button {
+                color: white;
+                height: 40px;
+                width: 90px;
+                background: #0D7CFF;
+                border-radius: 10px;
+                border: 1px solid white;
+            }
+            button:focus {
+                border: 0px;
+                outline: none;
+                border: 1px solid white;
+            }
+            button:hover {
+                cursor: pointer;
+                border: 1px solid white;
+            }
+            #right_menu input {
+                height: 25px;
+                width: 265px;
+                border: 2px solid orange;
+            }
+            #right_menu input:focus {
+                border: 2px solid orange;
+                outline: orange;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div id="content_container">
+            <div id="task0" style="max-width: 600px">
+                <!-- <h1>CONSENT FORM</h1> -->
+
+                <h2> Experiment Purpose </h2>
+                Programmers often use colour-coding/highlighters when programming. The purpose of this research is to document the
+                effect of such highlighters.
+                <br>
+                <br>
+                <h2>Contact</h2>
+                The research is conducted by Rikhart Bekkevold, NTNU, campus Gjøvik, for the course <i>IMT4882 - Specialization course II</i>.
+                <br>
+                Email: <i>rikhartb@stud.ntnu.no</i> for any questions.
+                <br>
+                <br>
+
+                <h2> Withdrawal </h2>
+                Closing the tab or exiting the website at any time before finishing the last task, will cancel the test and your results will not be saved.
+                <br>
+                <br>
+
+                <h2> Test Procedure </h2>
+                During the test you will be presented with a series of programming tasks. There will be a snippet of code, and
+                below it a question. Answer the question by writing the answer in the text field below the question. When you
+                think you have the right answer, click "next" to move on. The test takes around 10 minutes.
+                <br>
+                <br>
+
+                <!-- <h2> Data storage </h2>
+                The results of the test will be stored in a database. No personal information will
+                be stored, only your answers and the time spent. -->
+
+                <h2> Language </h2>
+                <pre>
+The code is in Javascript. It has some small differences to other common languages:
+
+1.   when declaring parameters like in "function add(x, y)", it is not necessary to write the datatype of x and y
+2.   "var" is short for variable and can contain all data types (int, float, string etc..)
+
+Just know that all the code is valid. There are no errors, so any differences to other langugages you
+know should be irrelevant.
+                </pre>
+
+                <br><br>By clicking "Start test" you herby agree to the above.<br><br>
+                <b style="font-size: 1.2em">NB: The test is timed.</b>
+                <!-- , but try to get the right answer. -->
+            </div>
+
+
+            <div class="el">
+                <h3>Thanks for participating!</h3>
+                Your results have been saved.
+                <br>
+                You can close the browser tab now.
+            </div>
+        </div>
+
+        <div id="right_menu">
+            <div id="question_container">
+                <div id="question" style="font-size: 1.5em; margin-bottom: 10px"> What is the output of add? </div>
+                <input id="answer" type="text" placeholder=" Answer here.."></input>
+            </div>
+            <!-- multiple choose? hidden defauil,-->
+            <button style="margin: 10px 0 40px 0"></button>
+        </div>
+
+
+        <!-- <div id="container">
+            <div id="gender">
+                <label for="">Gender</label>
+                <br>
+                <input type="radio" name="gender" value="male"> Male<br>
+                <input type="radio" name="gender" value="female"> Female<br>
+            </div>
+            <br>
+
+            <label>Programming Experience (by your best estimate)<label>
+            <br>
+            <select>
+                <option value="novice">novice (1 - 2 years)</option>
+                <option value="intermediate">intermediate (2 - 5 years)</option>
+                <option value="advanced">advanced (5+ years)</option>
+            </select>
+            <br>
+            <br>
+
+            <div id="mode">
+                <label for="">Do you use dark or light mode? </label>
+                <br>
+                <input type="radio" name="gender" value="male"> Dark<br>
+                <input type="radio" name="gender" value="male"> Light<br>
+            </div>
+        </div> -->
+
+        <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase.js"></script>
+        <script src="firebase_config.js"></script>
+
+        <!-- <script src="task.js"></script> -->
+        <script src="main.js"></script>
+    </body>
+    <!-- <pre id="task1" class="output">
+        <span class="function">function</span> <span class="function_name">add</span>()
+        {
+            <span class="var">var</span> fruits = <span class="array">[“banana”,“apple”, “pineapple”, “kiwi”]</span>;
+            <span class="var">var</span> count = <span class="num">0</span>;
+
+            <span class="for">for</span> (var i = 0; i < fruits.length; i++) {
+                <span class="var">var</span> fruit = fruits[i];
+
+                <span class="if">if</span> ( fruit == <span class="string">“apple”</span> )
+                    count += 2;
+                <span class="else">else {</span>
+                    count<span class="increment">++</span>;
+                }
+        }
+    </pre>
+
+        // spelling mistake, syntax mistake, wrong var type
+    </pre> -->
+        <!-- when i create them i can give them a var name -->
+</html>
